@@ -1,0 +1,17 @@
+name: 知音漫客
+desc: 解锁VIP+付费内容
+
+http:
+  mitm:
+    - "apigate.zymk.cn"
+  script:
+    - match: ^https:\/\/apigate\.zymk\.cn url script-response-body
+      name: zymk
+      type: response
+      require-body: true
+      timeout: 10
+      
+script-providers:
+  zymk:
+    url: https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/zymk.js
+    interval: 86400
